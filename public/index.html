@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/css/style.css">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEP</title>
+    <img class='logoImg' src="../images/logo.jpg" alt="">
+
+    <!-- Login and Account Buttons Go Here -->
+    <button class="topBtn" id="loginbtn" onclick="document.getElementById('id01').style.display='block'">Login
+        <button class="topBtn" id="accntbtn" onclick="document.getElementById('accntModal').style.display='block'" style="display: none"></button><br/>
+      </button>
+
+
+    <!-- Tab Class -->
+    <div class="tab">
+        <button class="tablinks" id="defaultOpen" onclick="openTab(event, 'Home')">Home</button>
+        <button class="tablinks" onclick="openTab(event, 'About')">About HEP</button>
+        <button class="tablinks" onclick="openTab(event, 'Products')">Products</button>
+        <button class="tablinks" onclick="openTab(event, 'Contact')">Contact</button>
+      </div>
+
+
+    <!-- Homepage Tab -->
+    <div class="tabcontent" id="Home">
+        <img class="mainpic" src="../images/blueHEP1.png" alt="MainPic"/>
+    </div>
+
+
+    <!-- Products Tab -->
+    <div class="tabcontent" id="Products">
+        <h1>PRODUCTS</h1>
+        <div class="row">
+        <!-- Column 1 -->
+          <div class="column">
+            <div class="prodcontainer"><img class="image" src="" style="width:100%" onclick="viewProduct(0)"/>
+              <div class="imageTxt"></div>
+              <div class="middle1" onclick="openEditProduct(0)" style="display: none">EDIT</div>
+              <div class="productInfo">
+                <div class="name"> </div>
+                <div class="price"> </div>
+                <div class="quantity"> </div>
+                <div class="description"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Column 2 -->
+          <div class="column">
+            <div class="prodcontainer"><img class="image" src="" style="width:100%" onclick="viewProduct(1)"/>
+              <div class="imageTxt"></div>
+              <div class="middle1" onclick="openEditProduct(1)" style="display: none">EDIT</div>
+              <div class="productInfo">
+                <div class="name"> </div>
+                <div class="price"> </div>
+                <div class="quantity"> </div>
+                <div class="description"></div>
+              </div>
+            </div>
+          </div>
+          <!-- Column 3 -->
+          <div class="column">
+            <div class="prodcontainer"><img class="image" src="" style="width:100%" onclick="viewProduct(2)"/>
+              <div class="imageTxt"></div>
+              <div class="middle1" onclick="openEditProduct(2)" style="display: none">EDIT</div>
+              <div class="productInfo">
+                <div class="name"> </div>
+                <div class="price"> </div>
+                <div class="quantity"> </div>
+                <div class="description"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+    <!-- About Tab -->
+    <div class="tabcontent" id="About">
+        <h1>About</h1>
+        <h3>HEP Pencil - Higgens Eraser Pencil</h3>
+        <div class="aboutcontent">
+          <p>The Higgens Eraser Pencil was created to be able to pivot your pencil, rather than turn it over to erase.<br/>As a big fan of working Soduko puzzles on paper, it was frustrating to keep flipping the pencil over when filling numbers in
+            and then erasing ones that weren't needed. It seemed obvious that a pencil with the lead and eraser at the same end would be 
+            easier to use. Since that product didn't exist, I decided to make one.
+          </p>
+          <p>I hope you enjoy using yours!</p>
+        </div>
+      </div>
+
+
+    <!-- Contact Page Tab -->
+    <div class="tabcontent" id="Contact">
+        <div class="form-container">
+            <form class="contact-form">
+                <h2>Contact</h2>
+                <input type="text" id="name" placeholder="Full name"><br>
+                <input type="email" id="email" placeholder="Email"><br>
+                <input type="text" id="subject" placeholder="Subject"><br>
+                <textarea id="message" placeholder="message" cols="30" rows="10"></textarea><br>
+                <input type="submit" class="submit" value="Send Message">
+            </form>
+        </div>
+    </div>
+
+
+
+    <!-- View Product Modal -->
+    <div class="productmodal" id="productPage">
+        <div class="product-modal-content"> <span class="close" onclick="closeModal()" title="Close Modal">&times;</span>
+        <div class="left-column"><img id="product-image" src="" alt=""/>
+            <!--img(data-image='red' src="../images/img2.png" alt='')-->
+        </div>
+        <!-- Right Column -->
+        <div class="right-column"> 
+            <div class="product-description"> <span>Product </span>
+            <div id="product-index" style="display: none"></div>
+            <h1 id="product-name">Product Name </h1>
+            <p id="product-desc">desc</p>
+            </div>
+            <div class="product-config"> 
+            <div class="product-color"> <span>Color </span>
+                <div class="color-choose">
+                <div>
+                    <input id="red" data-image="red" type="radio" name="color" value="red"/>
+                    <label for="red"><span></span></label>
+                </div>
+                <div>
+                    <input id="blue" data-image="blue" type="radio" name="color" value="blue"/>
+                    <label for="blue"><span></span></label>
+                </div>
+                <div>
+                    <input id="black" data-image="black" type="radio" name="color" value="black" checked=""/>
+                    <label for="black"><span></span></label>
+                </div>
+                </div>
+            </div>
+            <div class="cable-config"> <span>Extra options </span>
+                <div class="cable-choose">
+                <button>Option 1</button>
+                <button>Option 2</button>
+                <button>Option 3</button>
+                </div><a href="#">Questions/Help?</a>
+            </div>
+            <div class="product-price"> <span id="product-price">price goes here</span><a class="cart-btn" onclick="addToCart()">Add to cart</a></div><br/>
+            <div class="exitModal">
+                <button class="cancelproductbtn" type="button" onclick="document.getElementById('productPage').style.display='none'">Cancel         </button>
+            </div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+    <!-- Add to Cart Pop Up -->
+    <div class="popup"><span class="popuptext" id="myPopup">Item has been added!</span>
+        <button class="cartBtn" onclick="document.getElementById('cartModal').style.display='block'">Cart
+          <div id="cartTotal">0</div>
+        </button>
+    </div>
+
+
+
+    <!-- Shopping Cart Modal -->
+    <div class="modal" id="cartModal"><span class="close" onclick="document.getElementById('cartModal').style.display='none'" title="Close Modal">&times;</span>
+        <!-- Modal Content-->
+        <div class="modal-content">
+        <div class="container"> 
+            <div class="cartHeader">Shopping Cart</div>
+            <table id="myTable">
+            <tr>
+                <th>Image </th>
+                <th>Name</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th> </th>
+            </tr>
+            </table><br/>
+            <div class="total">Subtotal: </div>
+            <div class="total" id="totalPrice">0 </div><br/>
+        </div>
+        <button class="checkoutbtn" type="button">Checkout</button>
+        </div>
+    </div>
+
+
+
+    <!-- Login Modal -->
+    <div class="modal" id="id01"><span class="close" onclick="document.getElementById('id01').style.display='none'" title="Close Modal">&times;</span>
+        <!-- Modal Content-->
+        <form class="modal-content animate">
+          <!-- action="/action_page.php">-->
+          <div class="imgcontainer"><img class="avatar" src="images/avatar.png" alt="Avatar"/></div>
+          <div class="container">
+            <label for="uname"><b>Username</b></label>
+            <input type="text" placeholder="Enter Username" id="uname" name="uname" required=""/>
+            <label for="psw"><b>Password</b></label>
+            <input type="password" placeholder="Enter Password" id="psw" name="psw" required=""/><br/>
+            <input type="button" value="Login" id="submitPsw" onclick="attemptLogin()" required=""/>
+            <label>
+              <input type="checkbox" checked="checked" name="remember"/> Remember me
+            </label>
+          </div>
+          <div class="container" style="background-color:#f1f1f1">
+            <button class="cancelbtn" type="button" onclick="document.getElementById('id01').style.display='none'">Cancel</button><span class="psw">Forgot <a href="#">password?</a></span>
+          </div>
+        </form>
+    </div>
+
+
+
+    <!-- Edit Product Modal -->
+    <div class="modal" id="editProductPage"><span class="close" onclick="document.getElementById('editProductPage').style.display='none'" title="Close Modal">&times;</span>
+        <!-- Modal Content-->
+        <div class="modal-content">
+          <div class="container">
+            <h1 class="editPageHeader">Edit Product Page</h1>
+            <label for="pname"><b>Product Name:</b></label>
+            <input type="text" placeholder="Change Product Name" id="pname" name="pname" required=""/>
+            <label for="pdesc"><b>Description:</b></label>
+            <input type="text" placeholder="Change Description" id="pdesc" name="pdesc" required=""/>
+            <label for="pprice"><b>Price:</b></label>
+            <input type="text" placeholder="Example: '$5.00'" id="pprice" name="pprice" required=""/>
+            <label for="pimg" style="cursor: pointer"><b>Product Image:   </b></label>
+            <input type="file" id="pimg" onchange="loadFile(event)" name="filename"/><img class="previewImg" src=""/>
+          </div>
+          <div class="container" style="background-color:#f1f1f1">
+            <button class="saveChangesBtn" type="submit" onclick="saveProductChanges()">Save Changes</button>
+            <button class="cancelChangesbtn" type="button" onclick="document.getElementById('id01').style.display='none'">Cancel</button>
+          </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Account Modal -->
+    <div class="modal" id="accntModal"><span class="close" onclick="document.getElementById('accntModal').style.display='none'" title="Close Modal">&times;</span>
+        <!-- Modal Content-->
+        <form class="modal-content animate">
+        <div class="container">
+            <h1 class="accntHeader">My Account </h1>
+            <h3 class="accntName">username </h3>
+            <input type="button" value="Logout" id="logout" onclick="disableAdmin()" required=""/>
+        </div>
+        <div class="container" style="background-color:#f1f1f1">
+            <button class="cancelbtn" type="button" onclick="document.getElementById('accntModal').style.display='none'">Cancel</button>
+        </div>
+        </form>
+    </div>
+
+
+
+    <script src="/js/app.js"></script>
+    <script src="/js/functions.js"></script>
+    <script src="/js/products.js"></script>
+
+</body>
+</html>
